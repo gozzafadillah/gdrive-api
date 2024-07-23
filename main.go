@@ -77,7 +77,7 @@ func uploadFileHandler(c echo.Context) error {
 	defer src.Close()
 
 	// Get the Google Drive service
-	client := ServiceAccount(".credentials.json")
+	client := ServiceAccount(".info_source.json")
 	srv, err := drive.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to create Google Drive service"})
@@ -133,7 +133,7 @@ func listFilesHandler(c echo.Context) error {
 	}
 
 	// Get the Google Drive service
-	client := ServiceAccount(".credentials.json")
+	client := ServiceAccount(".info_source.json")
 	srv, err := drive.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to create Google Drive service"})
@@ -165,7 +165,7 @@ func getFileHandler(c echo.Context) error {
 	}
 
 	// Get the Google Drive service
-	client := ServiceAccount(".credentials.json")
+	client := ServiceAccount(".info_source.json")
 	srv, err := drive.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to create Google Drive service"})
@@ -195,7 +195,7 @@ func getFileMetadataHandler(c echo.Context) error {
 	}
 
 	// Get the Google Drive service
-	client := ServiceAccount(".credentials.json")
+	client := ServiceAccount(".info_source.json")
 	srv, err := drive.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to create Google Drive service"})
@@ -257,7 +257,7 @@ func deleteFileHandler(c echo.Context) error {
 	}
 
 	// Get the Google Drive service
-	client := ServiceAccount(".credentials.json")
+	client := ServiceAccount(".info_source.json")
 	srv, err := drive.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Failed to create Google Drive service"})
